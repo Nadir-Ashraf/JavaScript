@@ -24,3 +24,19 @@
 
 // let fruits = ["grapes", "mangoes", "peaches"];
 // let newFruits = [...fruits];       // newFruits is a new data structure, it is shallow copy(identical copy) of fruits[]
+
+//-----------------------------------------------------------------------------------------------------------------------------------------
+
+// function sum(a, b, c){
+//     return a + b + c;
+// }
+
+// const arr = [1, 2, 3];
+
+// console.log(sum(...arr));
+
+//-----------------------------------------------------------------------------------------------------------------------------------------
+
+// const word = "Hello world";
+// const wordCopy = [...word].reverse().join('');
+// console.log(wordCopy);

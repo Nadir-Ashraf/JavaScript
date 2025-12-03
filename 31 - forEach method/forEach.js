@@ -6,23 +6,23 @@
 //           element, index, array are provided
 
 //--------------------------------------------------------------------------------------------------------------------------------------------
-// let numbers = [1, 2, 3, 4, 5];
+let numbers = [1, 2, 3, 4, 5];
 
-// function display(element){
-//     console.log(element);
-// }
+function display(element){
+    console.log(element);
+}
 
-// function doubleValue(element, index, array){
-//     array[index] = element * 2;
-// }
+function doubleValue(element, index, array){
+    array[index] = element * 2;
+}
 
-// function tripleValues(element, index, array){
-//     array[index] = element * 3;
-// }
+function tripleValues(element, index, array){
+    array[index] = element * 3;
+}
 
-// // numbers.forEach(doubleValue);
-// // numbers.forEach(tripleValues);
-// numbers.forEach(display);
+// numbers.forEach(doubleValue);
+// numbers.forEach(tripleValues);
+numbers.forEach(display);
 
 //-------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -36,5 +36,5 @@
 //     array[index] = element.toUpperCase();
 // }
 
-// fruits.forEach(upperCase);
 // fruits.forEach(display);
+// fruits.forEach(upperCase);
