@@ -1,0 +1,60 @@
+body {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #edecec;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+.btn {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    margin: 20px;
+    border: 5px solid rgb(255, 68, 0);
+    transition: border-color 0.15s,
+    box-shadow 0.15s;
+}
+
+.btn:hover{
+    border-color: green;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+#rock-btn {
+    background: url(assets/rock.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#paper-btn {
+    background: url(assets/paper.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#scissors-btn {
+    background: url(assets/scissors.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.choiceDisplay {
+    margin-top: 50px;
+    font-size: 40px;
+}
+
+.resultDisplay {
+    margin-top: 50px;
+    font-size: 50px;
+}

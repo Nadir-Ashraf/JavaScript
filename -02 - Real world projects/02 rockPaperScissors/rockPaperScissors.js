@@ -53,22 +53,39 @@ function computerChoosing(){
     return computerChoice;
 }
 
-// Result 
+// Result
+let result = ""; 
+let resultEl = document.getElementById("result");
 function showResult(playerChoice, computerChoice){
     if(playerChoice == computerChoice){
         document.getElementById("result").innerHTML = "Draw"
+        result = "Draw";
     }
     else if(playerChoice == "Rock" && computerChoice == "Scissors"){
         document.getElementById("result").innerHTML = "You won";
+        result = "You won";        
     }
     else if(playerChoice == "Paper" && computerChoice == "Rock"){
         document.getElementById("result").innerHTML = "You won";
+        result = "You won";
     }
     else if(playerChoice == "Scissors" && computerChoice == "Paper"){
         document.getElementById("result").innerHTML = "You won";
+        result = "You won";
     }
     else{
         document.getElementById("result").innerHTML = "Computer won";
+        result = "Computer won";
+    }
+
+    if(result == "You won"){
+        resultEl.style.backgroundColor = "green";
+    }
+    else if(result == "Computer won"){
+        resultEl.style.backgroundColor = "red";
+    }
+    else {
+        resultEl.style.backgroundColor = "rgb(143, 143, 143)"
     }
 }
 
