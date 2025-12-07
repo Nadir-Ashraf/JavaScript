@@ -13,6 +13,7 @@ rockBtn.onclick = function(){
 
     computerChoice = computerChoosing();
     showResult(playerChoice, computerChoice);
+    scoreCalculation(result);
 }
 
 paperBtn.onclick = function(){
@@ -58,7 +59,8 @@ let result = "";
 let resultEl = document.getElementById("result");
 function showResult(playerChoice, computerChoice){
     if(playerChoice == computerChoice){
-        document.getElementById("result").innerHTML = "Draw"
+        document.getElementById("result").innerHTML = "Draw";
+        
         result = "Draw";
     }
     else if(playerChoice == "Rock" && computerChoice == "Scissors"){
@@ -78,6 +80,7 @@ function showResult(playerChoice, computerChoice){
         result = "Computer won";
     }
 
+    // Result colors
     if(result == "You won"){
         resultEl.style.backgroundColor = "green";
     }
@@ -87,6 +90,10 @@ function showResult(playerChoice, computerChoice){
     else {
         resultEl.style.backgroundColor = "rgb(143, 143, 143)"
     }
+
+    return result;
 }
 
-
+function scoreCalculation(result){
+    
+}
