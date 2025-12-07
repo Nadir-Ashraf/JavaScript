@@ -6,32 +6,61 @@ const displayPlayerChoice = document.getElementById("playerChoiceResult");
 
 let playerChoice = "";
 let computerChoice = "";
+let buttonClicked = 5;  // Total 5 rounds
 
 rockBtn.onclick = function(){
-    displayPlayerChoice.innerHTML = "Player choice = Rock";
-    playerChoice = "Rock";
+    buttonClicked--;
 
-    computerChoice = computerChoosing();
-    showResult(playerChoice, computerChoice);
-    scoreCalculation(result);
+    if(buttonClicked >= 0){
+        document.getElementById("numberOfRounds").innerHTML = `Rounds Left: ${buttonClicked}`;
+        
+        playerChoice = "Rock";
+        displayPlayerChoice.innerHTML = `Player = ${playerChoice}`;
+
+        computerChoice = computerChoosing();        
+        finalWinner = scoreCalculation(playerChoice, computerChoice);
+    }
+
+    if(buttonClicked == 0){
+        showResult(finalWinner);
+    }
 }
 
 paperBtn.onclick = function(){
-    displayPlayerChoice.innerHTML = "Player choice = Paper";
-    playerChoice = "Paper";
-    
-    computerChoice = computerChoosing();
-    showResult(playerChoice, computerChoice);
+    buttonClicked--;
+
+    if(buttonClicked >= 0){
+        document.getElementById("numberOfRounds").innerHTML = `Rounds Left: ${buttonClicked}`;
+        
+        playerChoice = "Paper";
+        displayPlayerChoice.innerHTML = `Player = ${playerChoice}`;
+
+        computerChoice = computerChoosing();        
+        finalWinner = scoreCalculation(playerChoice, computerChoice);
+    }
+
+    if(buttonClicked == 0){
+        showResult(finalWinner);
+    }
 }
 
 scissorsBtn.onclick = function(){
-    displayPlayerChoice.innerHTML = "Player choice = Scissors";
-    playerChoice = "Scissors";
+    buttonClicked--;
 
-    computerChoice = computerChoosing();
-    showResult(playerChoice, computerChoice);
+    if(buttonClicked >= 0){
+        document.getElementById("numberOfRounds").innerHTML = `Rounds Left: ${buttonClicked}`;
+        
+        playerChoice = "Scissors";
+        displayPlayerChoice.innerHTML = `Player = ${playerChoice}`;
+
+        computerChoice = computerChoosing();        
+        finalWinner = scoreCalculation(playerChoice, computerChoice);
+    }
+
+    if(buttonClicked == 0){
+        showResult(finalWinner);
+    }
 }
-
 
 // Computer choice
 function computerChoosing(){
@@ -48,52 +77,61 @@ function computerChoosing(){
         computerChoice = "Scissors";
     }
 
-    console.log(`Computer choose ${computerChoice}`);
-
-    document.getElementById("computerChoice").innerHTML = `Computer choice = ${computerChoice}`;
+    document.getElementById("computerChoice").innerHTML = `Computer = ${computerChoice}`;
     return computerChoice;
 }
 
-// Result
-let result = ""; 
-let resultEl = document.getElementById("result");
-function showResult(playerChoice, computerChoice){
+////////////////////////////////////////////////////////////////////////////////////////////////
+let playerScore = 0;
+let computerScore = 0;
+let winner = "";
+function scoreCalculation(playerChoice, computerChoice){
     if(playerChoice == computerChoice){
-        document.getElementById("result").innerHTML = "Draw";
-        
-        result = "Draw";
+    // Draw (No point)
     }
     else if(playerChoice == "Rock" && computerChoice == "Scissors"){
-        document.getElementById("result").innerHTML = "You won";
-        result = "You won";        
+        playerScore++;
     }
     else if(playerChoice == "Paper" && computerChoice == "Rock"){
-        document.getElementById("result").innerHTML = "You won";
-        result = "You won";
+        playerScore++;
     }
     else if(playerChoice == "Scissors" && computerChoice == "Paper"){
-        document.getElementById("result").innerHTML = "You won";
-        result = "You won";
+        playerScore++;
     }
     else{
-        document.getElementById("result").innerHTML = "Computer won";
-        result = "Computer won";
+        computerScore++;
     }
-
-    // Result colors
-    if(result == "You won"){
-        resultEl.style.backgroundColor = "green";
-    }
-    else if(result == "Computer won"){
-        resultEl.style.backgroundColor = "red";
-    }
-    else {
-        resultEl.style.backgroundColor = "rgb(143, 143, 143)"
-    }
-
-    return result;
-}
-
-function scoreCalculation(result){
     
+    document.getElementById("playerScore").innerHTML = `${playerScore}`;
+    document.getElementById("computerScore").innerHTML = `${computerScore}`;
+
+    if(playerScore > computerScore){
+        winner = "Player";
+    }
+    else if(playerScore < computerScore){
+        winner = "Computer";
+    }
+    else if(playerScore == computerScore){
+        winner = "Draw";
+    }
+    return winner;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Result
+let result = document.getElementById("result");
+function showResult(finalWinner){
+
+    if(finalWinner == "Player"){
+        document.getElementById("result").innerHTML = "You won";
+        result.style.backgroundColor = "green";
+    }
+    else if(finalWinner == "Computer"){
+        document.getElementById("result").innerHTML = "Computer won";
+        result.style.backgroundColor = "red";
+    }
+    else if(finalWinner == "Draw"){
+        document.getElementById("result").innerHTML = "Draw";
+        result.style.backgroundColor = "rgb(143, 143, 143)";
+    }
 }
